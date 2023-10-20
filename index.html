@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto-Click Link Based on Operating System</title>
+    <style>
+        body {
+            background-color: rgb(212, 212, 213);
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: large;
+            color: rgb(93, 93, 93);
+            text-align: center;
+            margin-top: 5%;
+        }
+        img {
+            max-width: 120%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hidden {
+             display: none;
+        } 
+    </style>
+</head>
+<body>
+    <div>
+    <p>The Naked Gallery</p>
+    
+    <a class="hidden" id="windowsLink" href="https://jdosses.github.io/iemzzz/objects/iemzzz01.glb">Click on Windows</a>
+    <a id="macLink" rel="ar" href="https://jdosses.github.io/iemzzz/objects/iemzzz02.usdz#callToAction=Onlyfans%20&amp;checkoutTitle=The%20Naked%20Gallery&amp;checkoutSubtitle=The%20Naked%20Gallery%20"><img src="https://jdosses.github.io/iemzzz/images/thumbnail.png"></a>
+    <a class="hidden" id="linuxLink" href="https://jdosses.github.io/thenakedgallery.github.io/">Click on Linux</a>
+    <a class="hidden" id="androidLink" href="https://jdosses.github.io/iemzzz/objects/iemzzz01.glb">Click on Android</a>
+    </div>
+    <script>
+        window.onload = function() {
+            // Get the user agent string
+            var userAgent = window.navigator.userAgent;
+            
+            // Find the link elements by their IDs
+            var windowsLink = document.getElementById('windowsLink');
+            var macLink = document.getElementById('macLink');
+            var linuxLink = document.getElementById('linuxLink');
+            var androidLink = document.getElementById('androidLink');
+            
+            var fallbackLink = "https://jdosses.github.io/thenakedgallery.github.io/"; // Set your fallback URL here
+            
+            if (userAgent.indexOf("Win") !== -1) {
+                // User is on a Windows operating system
+                windowsLink.click();
+            } else if (userAgent.indexOf("Mac") !== -1) {
+                // User is on a macOS operating system
+                macLink.click();
+            } else if (userAgent.indexOf("Linux") !== -1) {
+                // User is on a Linux operating system
+                linuxLink.click();
+            } else if (userAgent.indexOf("Android") !== -1) {
+                // User is on an Android device
+                androidLink.click();
+            } else {
+                // User's operating system is not recognized, use the fallback link
+                window.location.href = fallbackLink;
+            }
+        };
+
+        const linkElement = document.getElementById("macLink");
+
+        linkElement.addEventListener("message", function (event) {
+        if (event.data === "_apple_ar_quicklook_button_tapped") {
+        // Handle the user tap.
+        // You can open a different URL, display a message, or perform any other action here.
+        const customUrlToOpen = "https://onlyfans.com/iemzzz"; // Replace with your custom URL
+        window.open(customUrlToOpen, '_self');
+         }
+        }, false);
+
+
+    </script>
+</body>
+</html>
